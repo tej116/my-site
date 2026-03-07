@@ -86,8 +86,8 @@ export default function Home() {
             <a href="https://www.linkedin.com/in/tejas-more-a59165281/" target="_blank" className="btn-box linkedin-main-btn">
                View LinkedIn
             </a>
-            <a href="/resume.pdf" download="Tejas_More_Resume.pdf" className="btn-box resume-btn">
-               Download CV
+            <a href="/Resume2.pdf" download="Tejas_More_Resume.pdf" className="btn-box resume-btn">
+               Download RESUME
             </a>
           </div>
         </div>
