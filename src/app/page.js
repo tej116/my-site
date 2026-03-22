@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js';
+import { SiPostman } from "react-icons/si";
 
 export default function Home() {
   const typedTarget = useRef(null);
@@ -146,7 +147,7 @@ export default function Home() {
             <h3>Technical Skills</h3>
             <div className="skill-tags">
               <span>Core Java & Java(8)</span><span>C</span><span>HTML</span><span>CSS</span>
-              <span>JavaScript</span><span>React.js</span><span>Bootstrap</span><span>Next.js</span><span>MySQL</span>
+              <span>JavaScript</span><span>React.js</span><span>Bootstrap</span><span>Next.js</span><span>Node.js</span><span>Express.js</span><span>MySQL</span><span>MongoDB Atlas</span>
             </div>
           </div>
           <div className="skill-category">
@@ -156,6 +157,7 @@ export default function Home() {
               <span><i className='bx bxl-github'></i> GitHub</span>
               <span><i className='bx bxl-visual-studio'></i> VS Code</span>
               <span><i className='bx bx-chip'></i> Tinkercad</span>
+             <span><SiPostman size={20} style={{marginRight: '5px'}} /> Postman</span>
             </div>
           </div>
           <div className="skill-category">
