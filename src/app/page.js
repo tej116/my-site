@@ -106,13 +106,13 @@ export default function Home() {
             desc="A real-time occupational health monitoring system developed for JSW, actively supporting 10,000+ users to streamline medical data tracking and enhance workplace safety. Built using React.js with secure API integrations, the platform enables efficient patient record management, health monitoring, and report generation. As a consultancy project, the source code and live output are confidential and not publicly accessible." 
           />
           <ProjectCard 
-            badge="Industrial" 
+            badge="Industry" 
             icon="bx-calendar-event" 
             title="Real-Time Attendance Tracking System" 
             desc="A scalable real-time attendance tracking system built using Next.js and MongoDB Atlas, designed to efficiently manage and monitor employee or student attendance for 1,000+ users. The application includes biometric face recognition powered by Face API and integrated machine learning models, enabling secure and seamless authentication. It supports real-time check-in/check-out, instant data synchronization, and cloud-based storage, along with detailed reports and analytics to enhance accuracy, reliability, and overall attendance management efficiency.." 
           />
           <ProjectCard 
-            badge="Industrial" 
+            badge="Industry" 
             icon="bx-package" 
             title="Inventory Track" 
             desc="A professional inventory management system designed to track stock, manage supply chain operations, and generate analytical reports. The platform provides real-time insights into inventory levels and improves operational efficiency, with the project card enabling direct redirection to the live application for a complete hands-on demonstration."  
