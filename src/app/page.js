@@ -109,7 +109,7 @@ export default function Home() {
             badge="Industry" 
             icon="bx-calendar-event" 
             title="Real-Time Attendance Tracking System" 
-            desc="A scalable real-time attendance tracking system built using Next.js and MongoDB Atlas, designed to efficiently manage and monitor employee or student attendance for 1,000+ users. The application includes biometric face recognition powered by Face API and integrated machine learning models, enabling secure and seamless authentication. It supports real-time check-in/check-out, instant data synchronization, and cloud-based storage, along with detailed reports and analytics to enhance accuracy, reliability, and overall attendance management efficiency.." 
+            desc="A scalable real-time attendance tracking system built using Next.js and MongoDB Atlas, designed to efficiently manage and monitor employee or student attendance for 1,000+ users. The application includes biometric face recognition powered by Face API and integrated machine learning models, enabling secure and seamless authentication. It supports real-time check-in/check-out, instant data synchronization, and cloud-based storage, along with detailed reports and analytics to enhance accuracy, reliability, and overall attendance management efficiency." 
           />
           <ProjectCard 
             badge="Industry" 
