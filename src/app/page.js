@@ -6,25 +6,22 @@ export default function Home() {
   const typedTarget = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // --- NEW: MONGODB FORM LOGIC ---
+  // --- MONGODB FORM LOGIC ---
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('Sending...');
-
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
       const result = await response.json();
-
       if (response.ok) {
-        setFormData({ name: '', email: '', message: '' }); // Clear form
+        setFormData({ name: '', email: '', message: '' });
         setStatus('✅ Message sent successfully!');
       } else {
         setStatus(`❌ Error: ${result.error || 'Failed to send'}`);
@@ -33,7 +30,6 @@ export default function Home() {
       setStatus('❌ Network error. Please try again.');
     }
   };
-  // -------------------------------
 
   useEffect(() => {
     const typed = new Typed(typedTarget.current, {
@@ -76,14 +72,14 @@ export default function Home() {
           </p>
 
           <div className="social-icons">
-            <a href="https://www.linkedin.com/in/tejas-more-a59165281/" target="_blank"><i className='bx bxl-linkedin'></i></a>
-            <a href="https://github.com/tej116" target="_blank"><i className='bx bxl-github'></i></a>
-            <a href="https://leetcode.com/u/TejaMore/" target="_blank"><i className='bx bx-code-alt'></i></a>
-            <a href="https://www.instagram.com/tej_asmore007/" target="_blank"><i className='bx bxl-instagram' ></i></a>
+            <a href="https://www.linkedin.com/in/tejas-more-a59165281/" target="_blank" rel="noreferrer"><i className='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/tej116" target="_blank" rel="noreferrer"><i className='bx bxl-github'></i></a>
+            <a href="https://leetcode.com/u/TejaMore/" target="_blank" rel="noreferrer"><i className='bx bx-code-alt'></i></a>
+            <a href="https://www.instagram.com/tej_asmore007/" target="_blank" rel="noreferrer"><i className='bx bxl-instagram' ></i></a>
           </div>
 
           <div className="home-scl">
-            <a href="https://www.linkedin.com/in/tejas-more-a59165281/" target="_blank" className="btn-box linkedin-main-btn">
+            <a href="https://www.linkedin.com/in/tejas-more-a59165281/" target="_blank" rel="noreferrer" className="btn-box linkedin-main-btn">
                View LinkedIn
             </a>
             <a href="/Resume2.pdf" download="Tejas_More_Resume.pdf" className="btn-box resume-btn">
@@ -103,9 +99,25 @@ export default function Home() {
       <section id="project" className="section-padding">
         <h2 className="sub-title">Real-Time <span>Industrial Projects</span></h2>
         <div className="card-grid">
-          <ProjectCard badge="Industry" icon="bx-plus-medical" title="JSW OHC" desc="Real-time medical monitoring for JSW using React.js and API integration." />
-          <ProjectCard badge="College" icon="bx-calendar-event" title="Event Management" desc="Platform for large-scale coordination and automated notifications." />
-          <ProjectCard badge="Industrial" icon="bx-package" title="Inventory Track" desc="Professional-grade supply chain tracking and analytics reports." />
+          <ProjectCard 
+            badge="Industry" 
+            icon="bx-plus-medical" 
+            title="JSW OHC" 
+            desc="A real-time occupational health monitoring system developed for JSW, actively supporting 10,000+ users to streamline medical data tracking and enhance workplace safety. Built using React.js with secure API integrations, the platform enables efficient patient record management, health monitoring, and report generation. As a consultancy project, the source code and live output are confidential and not publicly accessible." 
+          />
+          <ProjectCard 
+            badge="Industrial" 
+            icon="bx-calendar-event" 
+            title="Real-Time Attendance Tracking System" 
+            desc="A scalable real-time attendance tracking system built using Next.js and MongoDB Atlas, designed to efficiently manage and monitor employee or student attendance for 1,000+ users. The application includes biometric face recognition powered by Face API and integrated machine learning models, enabling secure and seamless authentication. It supports real-time check-in/check-out, instant data synchronization, and cloud-based storage, along with detailed reports and analytics to enhance accuracy, reliability, and overall attendance management efficiency.." 
+          />
+          <ProjectCard 
+            badge="Industrial" 
+            icon="bx-package" 
+            title="Inventory Track" 
+            desc="A professional inventory management system designed to track stock, manage supply chain operations, and generate analytical reports. The platform provides real-time insights into inventory levels and improves operational efficiency, with the project card enabling direct redirection to the live application for a complete hands-on demonstration."  
+            link="https://inventory-management-theta-hazel.vercel.app/"
+          />
         </div>
       </section>
 
@@ -215,14 +227,35 @@ export default function Home() {
   );
 }
 
-// Sub-components
-function ProjectCard({ icon, title, desc, badge }) {
-  return (
-    <div className="card project-card">
+// FIXED SUB-COMPONENT: Now handles the 'link' prop
+function ProjectCard({ icon, title, desc, badge, link }) {
+  const content = (
+    <>
       <span className="project-badge">{badge}</span>
       <i className={`bx ${icon}`}></i>
       <h3>{title}</h3>
       <p>{desc}</p>
+      {link && <span className="project-link-text">View Project →</span>}
+    </>
+  );
+
+  if (link) {
+    return (
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="card project-card"
+        style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <div className="card project-card">
+      {content}
     </div>
   );
 }
