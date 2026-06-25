@@ -91,7 +91,7 @@ export default function Home() {
 
         <div className="home-img-container">
             <div className="glowing-circle">
-                <img src="/tejas.jpeg" alt="Tejas More" className="profile-img" />
+                <img src="/tejas.png" alt="Tejas More" className="profile-img" />
             </div>
         </div>
       </section>
