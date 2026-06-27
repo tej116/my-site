@@ -55,6 +55,7 @@ export default function Home() {
         <nav className={`navbar ${menuOpen ? 'active' : ''}`}>
           <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
           <a href="#project" onClick={() => setMenuOpen(false)}>Projects</a>
+          <a href="#internships" onClick={() => setMenuOpen(false)}>Internships</a>
           <a href="#achievements" onClick={() => setMenuOpen(false)}>Achievements</a>
           <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
@@ -104,21 +105,68 @@ export default function Home() {
             badge="Industry" 
             icon="bx-plus-medical" 
             title="JSW OHC" 
-            desc="A real-time occupational health monitoring system developed for JSW, actively supporting 10,000+ users to streamline medical data tracking and enhance workplace safety. Built using React.js with secure API integrations, the platform enables efficient patient record management, health monitoring, and report generation. As a consultancy project, the source code and live output are confidential and not publicly accessible." 
+            desc="Developed as a Full Stack Developer, JSW OHC is a real-time occupational health monitoring system built to actively support 10,000+ users. The system streamlines medical data tracking, health monitoring, and automated report generation while enhancing workplace safety. Developed using React.js, Node.js, and secure API integrations, the platform enables efficient patient record management and secure role-based access control. As a consultancy project, the source code and live output are confidential and not publicly accessible." 
           />
           <ProjectCard 
             badge="Industry" 
             icon="bx-calendar-event" 
             title="Real-Time Attendance Tracking System" 
-            desc="A scalable real-time attendance tracking system built using Next.js and MongoDB Atlas, designed to efficiently manage and monitor employee or student attendance for 1,000+ users. The application includes biometric face recognition powered by Face API and integrated machine learning models, enabling secure and seamless authentication. It supports real-time check-in/check-out, instant data synchronization, and cloud-based storage, along with detailed reports and analytics to enhance accuracy, reliability, and overall attendance management efficiency." 
+            desc="Developed as a Full Stack Developer, this scalable real-time attendance tracking system is built using Next.js and MongoDB Atlas to manage and monitor employee or student attendance for 1,000+ users. The application integrates biometric face recognition powered by Face API and machine learning models for secure, seamless authentication. It supports real-time check-in/check-out, instant data synchronization, cloud-based storage, and detailed analytics reports to enhance overall attendance management efficiency." 
           />
           <ProjectCard 
             badge="Industry" 
             icon="bx-package" 
             title="Inventory Track" 
-            desc="A professional inventory management system designed to track stock, manage supply chain operations, and generate analytical reports. The platform provides real-time insights into inventory levels and improves operational efficiency, with the project card enabling direct redirection to the live application for a complete hands-on demonstration."  
+            desc="Developed as a Full Stack Developer, Inventory Track is a comprehensive inventory management system designed to track stock, manage supply chain operations, and generate real-time analytical reports. Built using React.js, Node.js, Express, and MongoDB, it provides real-time insights into stock levels, low-stock notifications, and transactional logs to optimize operational workflow. Click the card to view the live application for a complete hands-on demonstration."  
             link="https://inventory-management-theta-hazel.vercel.app/"
           />
+        </div>
+      </section>
+
+      {/* INTERNSHIPS SECTION */}
+      <section id="internships" className="section-padding">
+        <h2 className="sub-title">Professional <span>Internships</span></h2>
+        <div className="internships-container">
+          <div className="featured-internship">
+            <div className="internship-details">
+              <span className="internship-badge">Featured Role</span>
+              <h3>Full Stack Developer Intern</h3>
+              <h4 className="company-name">CodeMyFYP</h4>
+              <p className="internship-duration"><i className='bx bx-calendar'></i>Apr 2026 - Present</p>
+              <ul className="internship-highlights">
+                <li>Designing, developing, and maintaining scalable full-stack web applications using React, Next.js, Node.js, and MongoDB.</li>
+                <li>Implementing secure API integrations, state management, and optimized database queries.</li>
+                <li>Actively contributing to team collaborations, architectural decisions, and code reviews.</li>
+                <li><strong>Honored with the "Intern of the Week" Spotlight Award</strong> for driving innovation, continuous hard work, and delivering high standards of work.</li>
+              </ul>
+            </div>
+            <div className="internship-media">
+              <div className="spotlight-badge">Employee Spotlight 🌟</div>
+              <img src="/internship.png" alt="CodeMyFYP Intern of the Week - Tejas More" className="spotlight-img" />
+            </div>
+          </div>
+
+          <div className="other-internships-grid">
+            <div className="small-internship-card">
+              <div className="card-header">
+                <i className='bx bxl-react'></i>
+                <span className="internship-badge">Frontend</span>
+              </div>
+              <h3>Frontend Developer Intern</h3>
+              <h4 className="company-name">Imagecon</h4>
+              <p className="internship-desc">Worked with HTML, CSS, JavaScript, and modern frontend practices to build and improve intuitive, responsive user interfaces.</p>
+            </div>
+            
+            <div className="small-internship-card">
+              <div className="card-header">
+                <i className='bx bxs-data'></i>
+                <span className="internship-badge">Database</span>
+              </div>
+              <h3>MySQL Intern</h3>
+              <h4 className="company-name">Raj Software Solutions</h4>
+              <p className="internship-desc">Designed, created, and optimized database queries and tables. Handled core database operations including insert, update, delete, and schema management.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -130,6 +178,11 @@ export default function Home() {
             img="/Achievement1.jpg" 
             title="3rd Place - Sync & Solve" 
             desc="Secured 3rd place in the Technical Symposium PORT’25 at Sona College of Technology."
+          />
+          <AchievementCard 
+            img="/codevita.png" 
+            title="TCS CodeVita Season 12" 
+            desc="Secured a global rank of 4873 in the TCS CodeVita Season 12 coding competition, demonstrating strong problem-solving and algorithmic skills."
           />
           <AchievementCard 
             img="/Learnathon.png" 
@@ -229,15 +282,21 @@ export default function Home() {
   );
 }
 
-// FIXED SUB-COMPONENT: Now handles the 'link' prop
+// FIXED SUB-COMPONENT: Now handles the 'link' prop and uses flex alignment
 function ProjectCard({ icon, title, desc, badge, link }) {
   const content = (
     <>
-      <span className="project-badge">{badge}</span>
-      <i className={`bx ${icon}`}></i>
+      <div className="project-card-header">
+        <i className={`bx ${icon}`}></i>
+        <span className="project-badge">{badge}</span>
+      </div>
       <h3>{title}</h3>
       <p>{desc}</p>
-      {link && <span className="project-link-text">View Project →</span>}
+      {link ? (
+        <span className="project-link-text">View Project →</span>
+      ) : (
+        <span className="project-confidential-text">Confidential Project 🔒</span>
+      )}
     </>
   );
 
@@ -248,7 +307,6 @@ function ProjectCard({ icon, title, desc, badge, link }) {
         target="_blank" 
         rel="noopener noreferrer" 
         className="card project-card"
-        style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
       >
         {content}
       </a>
